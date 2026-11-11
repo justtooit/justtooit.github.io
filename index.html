@@ -2910,9 +2910,9 @@ if ("serviceWorker" in navigator && window.isSecureContext && location.protocol 
   renderer.render(scene, cam); requestAnimationFrame(loop);
 })(tPrev);
 
-// ---------- v1.1 주간 순위표 (기본 꺼짐, ?lb=1 일 때만 켜짐) ----------
+// ---------- 주간 순위표 (기본 켜짐, ?lb=0 이면 꺼짐 — 2026-11-11 결재) ----------
 // Supabase URL·publishable 키는 소스에 없고 build.mjs 가 빌드할 때 넣는다(없으면 빈 값 → 순위표 꺼짐). 쓰기는 RPC submit_score 만(DB 쪽이 점수·시간·닉네임·횟수를 검사). 계획: store\leaderboard-plan.md
-const LB = { on: new URLSearchParams(location.search).get("lb") === "1", url: "https://uktjtnwduwnedckwjeqw.supabase.co", key: "sb_publishable_WQP2U8J39AfB88Ao-D7gIQ_9L7CaKou", pending: null, busy: false, rows: null, mine: null };
+const LB = { on: new URLSearchParams(location.search).get("lb") !== "0", url: "https://uktjtnwduwnedckwjeqw.supabase.co", key: "sb_publishable_WQP2U8J39AfB88Ao-D7gIQ_9L7CaKou", pending: null, busy: false, rows: null, mine: null };
 if (LB.on && (!LB.url || !LB.key)) { LB.on = false; console.warn("leaderboard: Supabase 설정 없이 빌드됨 → 꺼짐"); }
 function lbId() {
   let id = null; try { id = localStorage.getItem("peelLbId"); } catch (e) {}
