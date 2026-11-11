@@ -18,6 +18,8 @@ button.g{background:rgba(255,255,255,.18);color:#fff;font-weight:500}
 #res{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:5;overflow-y:auto}
 #res .adslot{margin:6px 0 0;background:rgba(255,255,255,.06)}
 #res .box{background:#fff;color:#222;border-radius:18px;padding:20px;width:min(86vw,340px);text-align:center}
+#res .resWide{display:block;width:100%;margin-left:0;margin-right:0}#res .resRow{display:flex;gap:8px;margin-top:8px}#res .resRow button{flex:1;margin:0;min-width:0}#res .resRow.small button{font-size:14px;padding-top:8px;padding-bottom:8px}#gradeNote:empty{display:none}
+#lbTabs{width:min(92vw,380px);display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}#lbTabs::-webkit-scrollbar{display:none}#lbTabs button{flex:0 0 auto;margin:0;padding:6px 10px;font-size:13.5px;border-radius:999px}#lbTabs button.on{background:#ffe9a8;color:#333}
 #res h2{margin:0 0 6px;font-size:34px}
 #res p{margin:4px 0;font-size:14px}
 #res h2#grade{font-size:15px;font-weight:700;color:#555;margin:0 0 6px}
@@ -120,9 +122,9 @@ button.sel{background:#ffcf4a;color:#3a2a00;font-weight:700}
 <div class="tg"><span>🌐 언어</span><select id="oLang" style="font:inherit;font-size:16px;padding:8px;border-radius:10px;background:#3a3342;color:#fff;border:0"><option value="ko">한국어</option><option value="en">English</option><option value="ja">日本語</option><option value="zh">简体中文</option><option value="es">Español</option></select></div>
 <button class="big g" id="oReset" style="margin-top:8px;color:#ff9d9d">기록 초기화</button><button class="big g" id="oBack" style="margin-top:8px">닫기</button></div>
 <div class="ov" id="ach"><h1>업적</h1><div class="sub" id="achStat"></div><div class="wkHead" id="wkHead"></div><div id="wkList"></div><div class="wkHead">🏆 업적</div><div id="achList"></div><button class="big g" id="achBack" style="margin-top:8px">닫기</button></div>
-<div class="ov" id="lb"><h1>🏆 주간 순위</h1><div class="sub" id="lbSub"></div><div id="lbNickBox" style="width:min(92vw,380px);display:flex;flex-direction:column;gap:6px"><div style="display:flex;gap:6px"><input id="lbNick" maxlength="10" autocomplete="off" placeholder="닉네임 (2~10자)" style="flex:1;min-width:0;font:inherit;font-size:16px;padding:10px;border-radius:10px;border:0;background:#3a3342;color:#fff"><button id="lbSave" class="g">저장</button></div><label style="font-size:12.5px;line-height:1.5;opacity:.85"><input type="checkbox" id="lbAgree"> 닉네임·점수·기기 임의 번호가 순위표 서버에 저장되는 것에 동의해요. 이름·연락처·위치는 모으지 않아요. 기록은 8주 뒤 지워지고, 아래 버튼으로 바로 지울 수도 있어요.</label></div><div id="lbMsg" style="min-height:20px;font-size:14px"></div><div id="lbList" style="width:min(92vw,380px);display:flex;flex-direction:column;gap:5px"></div><div id="lbMine" style="font-size:14px"></div><button class="big g" id="lbDel" style="margin-top:6px;color:#ff9d9d">내 기록 지우기</button><button class="big g" id="lbBack">닫기</button></div>
+<div class="ov" id="lb"><h1>🏆 주간 순위</h1><div class="sub" id="lbSub"></div><div id="lbNickBox" style="width:min(92vw,380px);display:flex;flex-direction:column;gap:6px"><div style="display:flex;gap:6px"><input id="lbNick" maxlength="10" autocomplete="off" placeholder="닉네임 (2~10자)" style="flex:1;min-width:0;font:inherit;font-size:16px;padding:10px;border-radius:10px;border:0;background:#3a3342;color:#fff"><button id="lbSave" class="g">저장</button></div><label style="font-size:12.5px;line-height:1.5;opacity:.85"><input type="checkbox" id="lbAgree"> 닉네임·점수·기기 임의 번호가 순위표 서버에 저장되는 것에 동의해요. 이름·연락처·위치는 모으지 않아요. 기록은 8주 뒤 지워지고, 아래 버튼으로 바로 지울 수도 있어요.</label></div><div id="lbMsg" style="min-height:20px;font-size:14px"></div><div id="lbTabs" style="display:none"></div><div id="lbList" style="width:min(92vw,380px);display:flex;flex-direction:column;gap:5px"></div><div id="lbMine" style="font-size:14px"></div><button class="big g" id="lbDel" style="margin-top:6px;color:#ff9d9d">내 기록 지우기</button><button class="big g" id="lbBack">닫기</button></div>
 <div id="toast"></div><div id="praise"></div><div id="hint"></div>
-<div id="res"><canvas id="confetti"></canvas><div class="box"><div id="fx"><span id="fxG"></span><span id="fxS">0</span><span id="fxSt"><i>★</i><i>★</i><i>★</i></span></div><h2 id="grade">A</h2><p id="r1"></p><p id="r2"></p><p id="r3"></p><p id="r4"></p><button id="re" class="g" style="margin-top:10px;color:#333;background:#e5e5e5">다시 도전</button><button id="saveImgBtn" class="g" style="margin-top:8px;color:#333;background:#cfe8ff">이미지 저장</button><button id="shareBtn" class="g" style="margin-top:8px;color:#333;background:#ffe9a8">공유</button><button id="lbPost" class="g" style="display:none;margin-top:8px;color:#333;background:#d9f2c8">🏆 순위표에 올리기</button><button id="reMenu" class="g" style="margin-top:8px;color:#333;background:#e5e5e5">메뉴로</button></div><div class="adslot" data-slot="result">AD · 320×50</div></div>
+<div id="res"><canvas id="confetti"></canvas><div class="box"><div id="fx"><span id="fxG"></span><span id="fxS">0</span><span id="fxSt"><i>★</i><i>★</i><i>★</i></span></div><h2 id="grade" style="display:none">A</h2><p id="gradeNote" style="margin:2px 0 6px;font-weight:700;color:#b3202a"></p><p id="r1"></p><p id="r2"></p><p id="r3"></p><p id="r4"></p><button id="lbPost" class="g resWide" style="display:none;margin-top:10px;color:#1f3d12;background:#bfe8a8;font-weight:700">🏆 순위표에 올리기</button><div class="resRow"><button id="re" class="g" style="color:#333;background:#e5e5e5">다시 도전</button><button id="reMenu" class="g" style="color:#333;background:#e5e5e5">메뉴로</button></div><div class="resRow small"><button id="saveImgBtn" class="g" style="color:#333;background:#cfe8ff">이미지 저장</button><button id="shareBtn" class="g" style="color:#333;background:#ffe9a8">공유</button></div></div><div class="adslot" data-slot="result">AD · 320×50</div></div>
 <script>
 (function () {
   function fail() { if (window.__peelReady || document.getElementById("loadfail")) return; var d = document.createElement("div"); d.id = "loadfail"; d.style.cssText = "position:fixed;inset:0;background:#1d1822;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;z-index:99;font-size:17px;line-height:1.6";
@@ -368,7 +370,7 @@ for (const [ko,en,ja,zh,es] of [
 ]) DICT[ko] = {en,ja,zh,es};
 function applyLang() {
   document.documentElement.lang = LANG; document.title = tr("껍질 깎기 (시제품)");
-  const skip = new Set(["cards", "ruleMode", "ruleStd", "r1", "r2", "r3", "r4", "grade", "sc", "st", "tm", "cd", "mDaily", "achList", "achStat", "toast", "praise", "hint", "mShop", "shopList", "shopSeeds", "shopTabs", "mAch", "wkList", "wkHead", "oBgm", "mDex", "mChef", "mAttend", "dex", "attend", "lbSub", "lbList", "lbMine", "lbMsg", "lbPost", "styleChip", "styleDetail", "dexStyle"]);
+  const skip = new Set(["cards", "ruleMode", "ruleStd", "r1", "r2", "r3", "r4", "grade", "sc", "st", "tm", "cd", "mDaily", "achList", "achStat", "toast", "praise", "hint", "mShop", "shopList", "shopSeeds", "shopTabs", "mAch", "wkList", "wkHead", "oBgm", "mDex", "mChef", "mAttend", "dex", "attend", "lbSub", "lbList", "lbMine", "lbMsg", "lbPost", "lbTabs", "gradeNote", "styleChip", "styleDetail", "dexStyle"]);
   const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: (n) => { for (let p = n.parentNode; p && p !== document.body; p = p.parentNode) if (p.tagName === "SCRIPT" || (p.id && skip.has(p.id))) return NodeFilter.FILTER_REJECT; return NodeFilter.FILTER_ACCEPT; } });
   const nodes = []; for (let n; (n = w.nextNode());) nodes.push(n);
   for (const n of nodes) { if (n._ko === undefined) n._ko = n.nodeValue; const key = n._ko.trim(); if (/[가-힣]/.test(key)) n.nodeValue = n._ko.replace(key, tr(key)); }
@@ -2020,6 +2022,8 @@ function finishRound(why) {
   if (!stripMode && !r.challenge && F.kind === "pineapple") $("r1").textContent = T("껍질 {0}% · 눈 제거 {1}/{2} → {3}/{4}", Math.round(coverage() * 100), pineEyes.filter(q => q.done).length, pineEyes.length, r.sCov, r.line ? 75 : 60);
   afterRound(r);
   { const nm = tr(stripMode ? (FRUITS_STRIP.find(f => f[0] === stripKind) || [0, 0, ""])[2] : (FRUITS.find((f) => f[0] === (r.kindId || (F && F.kind))) || [0, 0, ""])[2]), md = stripMode ? tr("까기") : tr(modeName()); shareText = tr("🍎 과일 깎기") + "\n" + nm + " · " + md + "\n" + $("grade").textContent + "\n" + $("r4").textContent.trim(); }
+  // 큰 점수(#fx)와 겹치는 "B 67점 ★★☆" 줄(#grade)은 숨기고, 상황 안내만 짧게 보인다
+  $("gradeNote").textContent = [why === "time" ? tr("시간 종료!") : "", r.perfect ? tr("완벽한 한 줄!") : "", r.challenge ? tr(modeName()) : ""].filter(Boolean).join(" · ");
   $("res").style.display = "flex"; window.__lastGrade = r; audioInit(); tone(520, 780, .18, .12); setTimeout(() => tone(780, 1040, .22, .12), 140);
   try { awardSeeds(r); } catch (e) {}
   try { lbOnResult(r); } catch (e) {}
@@ -2206,7 +2210,7 @@ function styleInit() {
   st.textContent = "#styleDetail::before,#styleDetail::after{display:none}#styleDetail{z-index:11}#styleDetail .sdBox{background:#fff;color:#222;border-radius:18px;padding:20px 18px;width:min(88vw,340px);text-align:center;box-sizing:border-box;overflow-wrap:anywhere}#styleDetail .sdBox *{min-width:0;overflow-wrap:anywhere}#dexStyle{width:min(92vw,380px);text-align:center;font-size:13px;margin:0;overflow-wrap:anywhere}#dexStyle .sdChips{font-size:26px;letter-spacing:4px;margin-top:2px}";
   document.head.appendChild(st);
   const chip = styleMk("button", $("res").querySelector(".box"), "display:none;width:100%;margin-top:10px;padding:10px 12px;border-radius:12px;border:0;background:#efe6ff;color:#333;font:inherit;font-size:14px;line-height:1.45;text-align:center;overflow-wrap:anywhere", "styleChip");
-  $("res").querySelector(".box").insertBefore(chip, $("re"));
+  $("res").querySelector(".box").insertBefore(chip, $("lbPost")); // 결과창 버튼 줄(.resRow) 위, 점수 설명 아래
   const ov = styleMk("div", document.body, "", "styleDetail"); ov.className = "ov"; ov.setAttribute("role", "dialog"); ov.setAttribute("aria-modal", "true"); ov.setAttribute("aria-labelledby", "sdName");
   const box = styleMk("div", ov, "", null); box.className = "sdBox";
   styleMk("div", box, "font-size:12px;color:#777", "sdCap"); styleMk("div", box, "font-size:64px;line-height:1.2", "sdEm"); styleMk("div", box, "font-size:22px;font-weight:800;margin:2px 0 4px", "sdName"); styleMk("div", box, "font-size:14px;line-height:1.5;color:#444", "sdLine");
@@ -2912,7 +2916,7 @@ if ("serviceWorker" in navigator && window.isSecureContext && location.protocol 
 
 // ---------- 주간 순위표 (기본 켜짐, ?lb=0 이면 꺼짐 — 2026-11-11 결재) ----------
 // Supabase URL·publishable 키는 소스에 없고 build.mjs 가 빌드할 때 넣는다(없으면 빈 값 → 순위표 꺼짐). 쓰기는 RPC submit_score 만(DB 쪽이 점수·시간·닉네임·횟수를 검사). 계획: store\leaderboard-plan.md
-const LB = { on: new URLSearchParams(location.search).get("lb") !== "0", url: "https://uktjtnwduwnedckwjeqw.supabase.co", key: "sb_publishable_WQP2U8J39AfB88Ao-D7gIQ_9L7CaKou", pending: null, busy: false, rows: null, mine: null };
+const LB = { on: new URLSearchParams(location.search).get("lb") !== "0", url: "https://uktjtnwduwnedckwjeqw.supabase.co", key: "sb_publishable_WQP2U8J39AfB88Ao-D7gIQ_9L7CaKou", pending: null, busy: false, rows: null, mine: null, kind: "", v2: null };
 if (LB.on && (!LB.url || !LB.key)) { LB.on = false; console.warn("leaderboard: Supabase 설정 없이 빌드됨 → 꺼짐"); }
 function lbId() {
   let id = null; try { id = localStorage.getItem("peelLbId"); } catch (e) {}
@@ -2948,16 +2952,37 @@ function lbRender() {
     e.className = "wkItem" + (me ? " done" : ""); e.style.cssText = "display:flex;gap:10px;align-items:center";
     const a = document.createElement("span"), b = document.createElement("span"), c = document.createElement("b");
     a.style.cssText = "width:34px;text-align:right;opacity:.8"; a.textContent = (r.rank <= 3 ? ["🥇", "🥈", "🥉"][r.rank - 1] : r.rank + "");
-    b.style.cssText = "flex:1;min-width:0;overflow-wrap:anywhere"; b.textContent = String(r.nick || ""); c.textContent = String(r.score) + tr("점");
+    b.style.cssText = "flex:1;min-width:0;overflow-wrap:anywhere"; b.textContent = (!LB.kind && r.kind && typeof EMOJI === "object" && EMOJI[r.kind] ? EMOJI[r.kind] + " " : "") + String(r.nick || ""); c.textContent = String(r.score) + tr("점");
     e.append(a, b, c); box.appendChild(e);
   }
   $("lbMine").textContent = LB.mine && LB.mine.rank ? T("내 순위 {0}위 · {1}점 (전체 {2}명)", LB.mine.rank, LB.mine.score, LB.mine.total) : "";
 }
+// 과일별 순위(DB v2)가 있는지 한 번만 확인 — 없으면 탭을 숨기고 전체 순위만 쓴다
+async function lbCheckV2() {
+  if (LB.v2 !== null) return LB.v2;
+  try { await lbFetch("weekly_top_kind?select=kind&limit=1"); LB.v2 = true; } catch (e) { LB.v2 = /http 4\d\d/.test(String(e && e.message)) ? false : null; }
+  return LB.v2;
+}
+function lbTabs() {
+  const box = $("lbTabs"); box.textContent = "";
+  if (LB.v2 !== true) { box.style.display = "none"; return; }
+  box.style.display = "flex";
+  const list = [["", "🏆", tr("전체")], ...FRUITS];
+  for (const [k, em, nm] of list) {
+    const b = document.createElement("button"); b.className = "g" + (k === LB.kind ? " on" : ""); b.textContent = em + " " + tr(nm);
+    b.onclick = () => { if (LB.kind === k) return; LB.kind = k; lbMsg(""); lbLoad(); };
+    box.appendChild(b);
+  }
+  const on = box.querySelector(".on"); if (on && on.scrollIntoView) on.scrollIntoView({ block: "nearest", inline: "center" });
+}
 async function lbLoad() {
   $("lbSub").textContent = lbResetText();
   try {
-    const rows = await lbFetch("weekly_top?select=rank,nick,score,kind&order=rank.asc&limit=50"); LB.rows = Array.isArray(rows) ? rows : [];
-    try { const m = await lbFetch("rpc/my_weekly_rank", { p_player: lbId() }); LB.mine = m && m.rank ? m : null; } catch (e) { LB.mine = null; }
+    const v2 = await lbCheckV2(); if (!v2) LB.kind = "";
+    lbTabs();
+    const rows = LB.kind ? await lbFetch("weekly_top_kind?select=rank,nick,score,kind&kind=eq." + encodeURIComponent(LB.kind) + "&order=rank.asc&limit=50") : await lbFetch("weekly_top?select=rank,nick,score,kind&order=rank.asc&limit=50");
+    LB.rows = Array.isArray(rows) ? rows : [];
+    try { const m = await lbFetch("rpc/my_weekly_rank", LB.kind ? { p_player: lbId(), p_kind: LB.kind } : { p_player: lbId() }); LB.mine = m && m.rank ? m : null; } catch (e) { LB.mine = null; }
     lbRender();
   } catch (e) { lbMsg("순위표를 불러오지 못했어요. 인터넷을 확인해 주세요.", true); }
 }
@@ -2980,8 +3005,8 @@ async function lbSubmit(r) {
   try {
     let n = "", ok = false; try { n = localStorage.getItem("peelLbNick") || ""; ok = localStorage.getItem("peelLbOk") === "1"; } catch (e) {}
     if (!ok || !lbNickOk(n)) return false;
-    const res = await lbFetch("rpc/submit_score", { p_player: lbId(), p_nick: n, p_score: Math.max(0, Math.min(100, Math.round(r.total))), p_kind: String(r.kindId || (F && F.kind) || "unknown").slice(0, 20), p_duration_ms: Math.max(0, Math.round((LIMIT - tLeft) * 1000)) });
-    if (res && res.ok) { lbMsg(T("올렸어요! 이번 주 {0}위 (내 최고 {1}점)", res.rank, res.best), false); return true; }
+    const res = await lbFetch("rpc/submit_score", { p_player: lbId(), p_nick: n, p_score: Math.max(0, Math.min(100, Math.round(r.total))), p_kind: String(r.kindId || (F && F.kind) || "unknown").slice(0, 20), p_duration_ms: Math.max(0, Math.round(Number.isFinite(r.durMs) ? r.durMs : (LIMIT - tLeft) * 1000)) });
+    if (res && res.ok) { if (res.kind && LB.v2 !== false) LB.kind = res.kind; lbMsg(T("올렸어요! 이번 주 {0}위 (내 최고 {1}점)", res.rank, res.best), false); return true; }
     lbMsg(LB_MSG[res && res.code] || "올리지 못했어요.", true); return false;
   } catch (e) { lbMsg("올리지 못했어요. 인터넷을 확인해 주세요.", true); return false; }
   finally { LB.busy = false; }
@@ -2990,21 +3015,21 @@ async function lbSubmit(r) {
 function lbOnResult(r) {
   const b = $("lbPost"); LB.pending = null; b.style.display = "none"; b.disabled = false; b.textContent = tr("🏆 순위표에 올리기");
   if (!LB.on || stripMode || gameMode !== "time" || r.challenge || r.strip || r.nut || r.prep || r.citrus || !Number.isFinite(r.total)) return;
-  LB.pending = { total: r.total, kindId: r.kindId || (F && F.kind), tLeft, limit: LIMIT }; b.style.display = "block";
+  LB.pending = { total: r.total, kindId: r.kindId || (F && F.kind), durMs: Math.round((LIMIT - tLeft) * 1000) }; b.style.display = "block";
 }
 $("lbPost").onclick = async () => {
   const p = LB.pending; if (!p) return;
   let n = "", ok = false; try { n = localStorage.getItem("peelLbNick") || ""; ok = localStorage.getItem("peelLbOk") === "1"; } catch (e) {}
-  if (!ok || !lbNickOk(n)) { $("res").style.display = "none"; lbOpen(); lbMsg("닉네임을 정하고 동의하면 점수를 올려요."); return; }
+  if (!ok || !lbNickOk(n)) { $("res").style.display = "none"; if (LB.v2 !== false && p.kindId) LB.kind = p.kindId; lbOpen(); lbMsg("닉네임을 정하고 동의하면 점수를 올려요."); return; }
   const b = $("lbPost"); b.disabled = true;
-  const done = await lbSubmit({ total: p.total, kindId: p.kindId }), m = $("lbMsg").textContent, bad = $("lbMsg").style.color;
+  const done = await lbSubmit(p), m = $("lbMsg").textContent, bad = $("lbMsg").style.color;
   b.disabled = false; $("res").style.display = "none"; if (done) { LB.pending = null; b.style.display = "none"; }
   lbSyncForm(); show("lb"); await lbLoad(); $("lbMsg").textContent = m; $("lbMsg").style.color = bad;
 };
 $("lbSave").onclick = async () => {
   if (!lbSaveProfile()) return;
   const p = LB.pending;
-  if (p) { lbMsg("올리는 중…"); const done = await lbSubmit({ total: p.total, kindId: p.kindId }); if (done) { LB.pending = null; $("lbPost").style.display = "none"; } await lbLoad(); } else lbMsg("저장했어요.");
+  if (p) { lbMsg("올리는 중…"); const done = await lbSubmit(p); if (done) { LB.pending = null; $("lbPost").style.display = "none"; } await lbLoad(); } else lbMsg("저장했어요. 1분 도전을 끝내고 결과 화면에서 \"순위표에 올리기\"를 누르면 올라가요.");
 };
 $("lbDel").onclick = async () => {
   try { await lbFetch("rpc/delete_my_scores", { p_player: lbId() }); lbMsg("내 기록을 지웠어요."); await lbLoad(); } catch (e) { lbMsg("지우지 못했어요. 인터넷을 확인해 주세요.", true); }
