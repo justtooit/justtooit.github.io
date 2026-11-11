@@ -1,0 +1,18 @@
+{
+  "name": "과일 깎기 · Fruit Peeling",
+  "short_name": "과일 깎기",
+  "description": "과일을 돌려 가며 껍질을 깔끔하게 깎고, 견과류를 까는 1분 힐링 손맛 게임",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#2b2530",
+  "theme_color": "#2b2530",
+  "lang": "ko",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
